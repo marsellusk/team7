@@ -15,7 +15,10 @@ public class Game {
 
 
     public Game(){
-        // initialize a new game such that each column can store cards
+		buildDeck();
+		shuffle();
+		//create columns so that each column can store cards
+		
     }
 
     public void buildDeck() {
