@@ -15,10 +15,14 @@ public class Game {
 
 
     public Game(){
+		//builds the deck for the game
 		buildDeck();
+		//shuffles the aformentioned deck
 		shuffle();
-		//create columns so that each column can store cards
-		
+		//uses the col member in Game class so that each column can store maximum number of cards it may have to store
+		for(int i = 0; i < 4; i++){
+            cols.add(new ArrayList<Card>(12));
+        }
     }
 
     public void buildDeck() {
