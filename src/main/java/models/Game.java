@@ -15,7 +15,13 @@ public class Game {
 
 
     public Game(){
-        // initialize a new game such that each column can store cards
+<<<<<<< HEAD
+		//uses the col member in Game class so that each column can store maximum number of cards it may have to store
+		for(int i = 0; i < 4; i++){
+            cols.add(new ArrayList<Card>(12));
+        }
+=======
+>>>>>>> parent of 83e563a... added basic structure of Game function
     }
 
     public void buildDeck() {
