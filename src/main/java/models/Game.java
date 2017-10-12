@@ -15,14 +15,13 @@ public class Game {
 
 
     public Game(){
-		//builds the deck for the game
-		buildDeck();
-		//shuffles the aformentioned deck
-		shuffle();
+<<<<<<< HEAD
 		//uses the col member in Game class so that each column can store maximum number of cards it may have to store
 		for(int i = 0; i < 4; i++){
             cols.add(new ArrayList<Card>(12));
         }
+=======
+>>>>>>> parent of 83e563a... added basic structure of Game function
     }
 
     public void buildDeck() {
@@ -40,6 +39,10 @@ public class Game {
 
     public void dealFour() {
         // remove the top card from the deck and add it to a column; repeat for each of the four columns
+             for(int i = 0; i < 4;i++){
+           addCardToCol(i,deck.get(deck.size() - 1));
+           deck.remove(deck.size() - 1);
+     }
     }
 
     public void remove(int columnNumber) {
