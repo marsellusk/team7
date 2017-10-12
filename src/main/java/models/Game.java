@@ -15,13 +15,10 @@ public class Game {
 
 
     public Game(){
-<<<<<<< HEAD
 		//uses the col member in Game class so that each column can store maximum number of cards it may have to store
 		for(int i = 0; i < 4; i++){
             cols.add(new ArrayList<Card>(12));
         }
-=======
->>>>>>> parent of 83e563a... added basic structure of Game function
     }
 
     public void buildDeck() {
@@ -84,7 +81,13 @@ public class Game {
 
     private boolean columnHasCards(int columnNumber) {
         // check indicated column for number of cards; if no cards return false, otherwise return true
-        return false;
+        if(cols.get(columnNumber).size() > 0){
+            return true;
+        }
+        else {
+            return false;
+        }        
+
     }
 
     private Card getTopCard(int columnNumber) {
@@ -94,7 +97,14 @@ public class Game {
 
     public void move(int columnFrom, int columnTo) {
         // remove the top card from the columnFrom column, add it to the columnTo column
+        if(columnHasCards(columnTo) == false){
+           Card cardToMove = this.cols.get(columnFrom).get(cols.get(columnFrom).size() - 1);
+           removeCardFromCol(columnFrom);
+          addCardToCol(columnTo,cardToMove);
+        }
+
     }
+
 
     private void addCardToCol(int columnTo, Card cardToMove) {
         cols.get(columnTo).add(cardToMove);
