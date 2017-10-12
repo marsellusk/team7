@@ -29,6 +29,15 @@ public class Game {
 
     public void shuffle() {
         // shuffles the deck so that it is random
+	for (int j=0;j<52;j++){
+		int n;
+		Card temp;
+		Random rand = new Random();
+		n = rand.nextInt(52);
+		temp = deck.get(n);
+		deck.set(n,deck.get(deck.size() - 1));
+		deck.set(deck.size() - 1,temp);
+	}/*End for loop*/
     }
 
     public void dealFour() {
