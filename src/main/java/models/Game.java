@@ -44,6 +44,30 @@ public class Game {
 
     public void remove(int columnNumber) {
         // remove the top card from the indicated column
+        boolean check = columnHasCards(columnNumber); //Make sure removal column has cards
+        Card c1 = getTopCard(columnNumber);           //Then get the card to be removed from that column
+
+        int value1 = c1.getValue();                   //get the value of that card to compare later
+        if (check){
+            for (int i = 0; i < 4; i++){              //if the column has cards loop to a different column to compare cards
+                if(columnNumber != i){
+
+                    while(columnHasCards(i) == false) {     //if the next column doesn't have cards move one to the next one
+                        i++;
+                    }
+                }
+
+                Card c2 = getTopCard(i);                //get the card we are comparing the removal card to and its value
+                int value2 = c2.getValue();
+
+                if(c1.getSuit().toString() == c2.getSuit().toString() && value1 < value2){
+                    removeCardFromCol(columnNumber);         //if the card matches suit and is larger then the removal card remove it and exit the loop
+                    break;
+                }
+            }
+
+        }
+
     }
 
     private boolean columnHasCards(int columnNumber) {
