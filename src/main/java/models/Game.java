@@ -13,6 +13,7 @@ public class Game {
 
     public java.util.List<java.util.List<Card>> cols = new ArrayList<>(4);
 
+    public String error;    
 
     public Game(){
 		//uses the col member in Game class so that each column can store maximum number of cards it may have to store
@@ -49,6 +50,7 @@ public class Game {
            addCardToCol(i,deck.get(deck.size() - 1));
            deck.remove(deck.size() - 1);
      }
+	error=" "; 
     }
 
     public void remove(int columnNumber) {
@@ -102,7 +104,9 @@ public class Game {
            removeCardFromCol(columnFrom);
           addCardToCol(columnTo,cardToMove);
         }
-
+	else if(columnHasCards(columnTo) == true){
+		error = " You cannot move is column because it is empty or there are no empty columns";
+	}
     }
 
 
