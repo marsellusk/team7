@@ -13,7 +13,9 @@ public class Game {
 
     public java.util.List<java.util.List<Card>> cols = new ArrayList<>(4);
 
-    public String error;    
+    public String error;
+
+    public int score = 0;
 
     public Game(){
 		//uses the col member in Game class so that each column can store maximum number of cards it may have to store
@@ -72,7 +74,8 @@ public class Game {
                 int value2 = c2.getValue();
 
                 if(c1.getSuit().toString() == c2.getSuit().toString() && value1 < value2){
-                    removeCardFromCol(columnNumber);         //if the card matches suit and is larger then the removal card remove it and exit the loop
+                    removeCardFromCol(columnNumber);//if the card matches suit and is larger then the removal card remove it and exit the loop
+                    score++;
                     break;
                 }
             }
