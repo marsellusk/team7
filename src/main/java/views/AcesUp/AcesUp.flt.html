@@ -1,20 +1,37 @@
-<h1>Aces Up</h1>
+<div class="page_left">
+
+<h1 class="serif">Aces Up</h1>
+
+    <br><br><br><br><br><br>
+    <tr>
+    <a href="https://en.wikipedia.org/wiki/Aces_Up" target="_blank" class="link_type">Game Rules</a>
+    </tr>
+    <br><br><br><br><br><br><br><br><br><br><br>
+    <tr>
+        <p class="score_type">Score:</ps>
+    </tr>
+    <br><br><br><br><br><br><br><br><br>
+
+    <tr>
+    <button id="dealButton">Deal</button>
+    </tr>
+</div>
+
+<!-- This is a stylesheet that includes the font you should use -->
+<link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700" rel="stylesheet">
+
+<!-- This is a 3rd-party stylesheet for Font Awesome: http://fontawesome.io/ -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" media="screen">
+
 
 <link href="/assets/css/AcesUp.css" rel="stylesheet">
 <script type="text/javascript" src="/assets/webjars/jquery/2.1.3/jquery.js"></script>
 
 <body>
 
-<table>
-    <tr class="title">
-        <td>Column0</td>
-        <td >Column1</td>
-        <td >Column2</td>
-        <td >Column3</td>
-    </tr>
-
+<table class="table_view">
     <tr><td class="columnOfCards" id="c0">
-        <table>
+        <table class="col1">
             <tr><td class="cardLocation l0"></td></tr>
             <tr><td class="cardLocation l1"></td></tr>
             <tr><td class="cardLocation l2"></td></tr>
@@ -32,7 +49,7 @@
         </table>
     </td>
         <td class="columnOfCards" id="c1">
-            <table>
+            <table class="col2">
                 <tr><td class="cardLocation l0"></td></tr>
                 <tr><td class="cardLocation l1"></td></tr>
                 <tr><td class="cardLocation l2"></td></tr>
@@ -50,7 +67,7 @@
             </table>
         </td>
         <td class="columnOfCards" id="c2">
-            <table>
+            <table class="col3">
                 <tr><td class="cardLocation l0"></td></tr>
                 <tr><td class="cardLocation l1"></td></tr>
                 <tr><td class="cardLocation l2"></td></tr>
@@ -68,7 +85,7 @@
             </table>
         </td>
         <td class="columnOfCards" id="c3">
-            <table>
+            <table class="col4">
                 <tr><td class="cardLocation l0"></td></tr>
                 <tr><td class="cardLocation l1"></td></tr>
                 <tr><td class="cardLocation l2"></td></tr>
@@ -88,10 +105,25 @@
     </tr>
 </table>
 
-<button id="dealButton">Deal</button>
-<BR>Remove from: <button id="Remove1">Column1</button><button id="Remove2">Column2</button><button id="Remove3">Column3</button><button id="Remove4">Column4</button>
+<div class="remove_button">
+<br>Remove from:
+    <button id="Remove1">Remove1</button>
+    <button id="Remove2">Remove2</button>
+    <button id="Remove3">Remove3</button>
+    <button id="Remove4">Remove4</button>
+</div>
+<div class="move_button">
+<BR>Move from column
+    <input type="text" id="from_col"/>
+    to
+    <input type="text" id="to_col"/>
+    <button id="moveButton">Move</button>
+</div>
 
-<BR>Move from column <input type="text" id="from_col"  /> to <input type="text" id="to_col"  /> <button id="moveButton">Move</button>
+
+
+
+
 
 <div>Score: <scan class = "Score"></scan></div>
 
