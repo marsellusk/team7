@@ -93,6 +93,8 @@
 
 <BR>Move from column <input type="text" id="from_col"  /> to <input type="text" id="to_col"  /> <button id="moveButton">Move</button>
 
+<div>Score: <scan class = "Score"></scan></div>
+
 <script>
 
 var game;
@@ -100,6 +102,7 @@ var game;
 function display(game) {
 console.log(game);
 
+$('.Score').html(game.score);
 $('.error').html(game.error);
 
 $( '.columnOfCards .cardLocation' ).html("");
