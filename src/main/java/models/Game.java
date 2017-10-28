@@ -104,24 +104,22 @@ public class Game {
 
     public void move(int columnNumber) {
         // remove the top card from the columnFrom column, add it to an empty column
+        error = "You cannot move this column";
         int emptyColumn = 5;
         int i = 0;
         while ((emptyColumn == 5) || (i < 4)) {
-            if (columnHasCards(i) == false) {
+            if ((columnHasCards(i) == false)  && (i != columnNumber)) {
                 emptyColumn = i;
             }
-            i++;
+                i++;
         }
-        if((emptyColumn != 5) && columnHasCards(columnNumber)){
-            Card cardToMove = this.cols.get(columnNumber).get(cols.get(columnNumber).size() - 1);
-            removeCardFromCol(columnNumber);
-            addCardToCol(emptyColumn,cardToMove);
-        }
-        else {
-            error = " You cannot move this column because it is empty or there are no empty columns";
-        }
+            if ((emptyColumn != 5)) {
+                Card cardToMove = this.cols.get(columnNumber).get(cols.get(columnNumber).size() - 1);
+                removeCardFromCol(columnNumber);
+                addCardToCol(emptyColumn, cardToMove);
+                error = " ";
+            }
     }
-
 
     private void addCardToCol(int columnTo, Card cardToMove) {
         cols.get(columnTo).add(cardToMove);
