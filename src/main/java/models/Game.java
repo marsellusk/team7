@@ -59,7 +59,7 @@ public class Game {
         // remove the top card from the indicated column
         boolean check = columnHasCards(columnNumber); //Make sure removal column has cards
         Card c1 = getTopCard(columnNumber);           //Then get the card to be removed from that column
-
+        error = "cant remove the column";
         int value1 = c1.getValue();                   //get the value of that card to compare later
         if (check){
             for (int i = 0; i < 4; i++){              //if the column has cards loop to a different column to compare cards
@@ -76,11 +76,12 @@ public class Game {
                 if(c1.getSuit().toString() == c2.getSuit().toString() && value1 < value2){
                     removeCardFromCol(columnNumber);//if the card matches suit and is larger then the removal card remove it and exit the loop
                     score++;
+                    error = " ";
                     break;
                 }
             }
-
         }
+
 
     }
 
@@ -102,6 +103,8 @@ public class Game {
 
     public void move(int columnFrom, int columnTo) {
         // remove the top card from the columnFrom column, add it to the columnTo column
+        columnFrom = columnFrom - 1;
+        columnTo = columnTo - 1;
         if(columnHasCards(columnTo) == false){
            Card cardToMove = this.cols.get(columnFrom).get(cols.get(columnFrom).size() - 1);
            removeCardFromCol(columnFrom);
