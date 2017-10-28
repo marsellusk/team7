@@ -116,10 +116,10 @@
 
 <div class="move_button">
 <BR>
-    <button id="move1">Column1</button>
-    <button id="move2">Column2</button>
-    <button id="move3">Column3</button>
-    <button id="move4">Column4</button>
+    <button id="move1">Move1</button>
+    <button id="move2">Move2</button>
+    <button id="move3">Move3</button>
+    <button id="move4">Move4</button>
 </div>
 
 
@@ -210,7 +210,7 @@ $("#Remove4").click(function(){
 });
 
 
-function moveCard(colNumber){
+function moveCards(colNumber){
 $.ajax({
 type: "POST",
 url: "/moveCard/"+colNumber,
@@ -224,16 +224,16 @@ dataType:"json",
 }
 
 $("#move1").click(function(){
-    moveCard(0);
+    moveCards(0);
 });
 $("#move2").click(function(){
-    moveCard(1);
+    moveCards(1);
 });
 $("#move3").click(function(){
-    moveCard(2);
+    moveCards(2);
 });
 $("#move4").click(function(){
-    moveCard(3);
+    moveCards(3);
 });
 
 
