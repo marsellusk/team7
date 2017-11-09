@@ -115,9 +115,18 @@ public class Game {
         }
             if ((emptyColumn != 5)) {
                 Card cardToMove = this.cols.get(columnNumber).get(cols.get(columnNumber).size() - 1);
-                removeCardFromCol(columnNumber);
-                addCardToCol(emptyColumn, cardToMove);
-                error = " ";
+                if (cardToMove.getValue() == 14) {
+                    removeCardFromCol(columnNumber);
+                    addCardToCol(emptyColumn, cardToMove);
+                    error = " ";
+                }
+
+                else
+                    error = "Card is not an Ace";
+            }
+
+            else {
+                error = "No empty column";
             }
     }
 
