@@ -9,7 +9,6 @@ import java.util.Random;
  */
 public class Game {
 
-    public java.util.List<Card> deck = new ArrayList<>();
 
     public java.util.List<java.util.List<Card>> cols = new ArrayList<>(4);
 
@@ -24,35 +23,15 @@ public class Game {
         }
     }
 
-    public void buildDeck() {
-        for(int i = 2; i < 15; i++){
-            deck.add(new Card(i,Suit.Clubs));
-            deck.add(new Card(i,Suit.Hearts));
-            deck.add(new Card(i,Suit.Diamonds));
-            deck.add(new Card(i,Suit.Spades));
-        }
-    }
-
-    public void shuffle() {
-        // shuffles the deck so that it is random
-	for (int j=0;j<52;j++){
-		int n;
-		Card temp;
-		Random rand = new Random();
-		n = rand.nextInt(52);
-		temp = deck.get(n);
-		deck.set(n,deck.get(deck.size() - 1));
-		deck.set(deck.size() - 1,temp);
-	}/*End for loop*/
-    }
+    public Deck deck1 = new Deck();
 
     public void dealFour() {
         // remove the top card from the deck and add it to a column; repeat for each of the four columns
              for(int i = 0; i < 4;i++){
-           addCardToCol(i,deck.get(deck.size() - 1));
-           deck.remove(deck.size() - 1);
+           addCardToCol(i,deck1.deck.get(deck1.deck.size() - 1));
+           deck1.deck.remove(deck1.deck.size() - 1);
      }
-	error=" "; 
+	error=" ";
     }
 
     public void remove(int columnNumber) {
@@ -92,7 +71,7 @@ public class Game {
         }
         else {
             return false;
-        }        
+        }
 
     }
 
