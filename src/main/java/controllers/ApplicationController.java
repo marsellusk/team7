@@ -33,27 +33,25 @@ public class ApplicationController {
     
     public Result gameGet(){
         Game g = new Game();
-        //g.deck.buildDeck();
         g.deck1.shuffle();
-        g.dealFour();
 
         return Results.json().render(g);
     }
 
     public Result dealPost(Context context, Game g) {
         if(context.getRequestPath().contains("deal")){
-            g.dealFour();
+            g.user1.dealfour(g);
         }
         return Results.json().render(g);
     }
 
     public Result removeCard(Context context, @PathParam("column") int colNumber, Game g){
-        g.remove(colNumber);
+        g.user1.remove(colNumber, g);
         return Results.json().render(g);
     }
 
     public Result moveCard(Context context, @PathParam("column") int colNumber, Game g){
-        g.move(colNumber);
+        g.user1.move(colNumber, g);
         return Results.json().render(g);
     }
 
