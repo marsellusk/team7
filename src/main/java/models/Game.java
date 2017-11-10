@@ -14,57 +14,21 @@ public class Game {
 
     public String error;
 
-    public int score = 0;
+    public int score;
+
+    public Deck deck1 = new Deck();
+
+    public User user1 = new User();
 
     public Game(){
 		//uses the col member in Game class so that each column can store maximum number of cards it may have to store
 		for(int i = 0; i < 4; i++){
             cols.add(new ArrayList<Card>(12));
         }
+        score = 0;
     }
 
-    public Deck deck1 = new Deck();
-
-    public void dealFour() {
-        // remove the top card from the deck and add it to a column; repeat for each of the four columns
-             for(int i = 0; i < 4;i++){
-           addCardToCol(i,deck1.deck.get(deck1.deck.size() - 1));
-           deck1.deck.remove(deck1.deck.size() - 1);
-     }
-	error=" ";
-    }
-
-    public void remove(int columnNumber) {
-        // remove the top card from the indicated column
-        boolean check = columnHasCards(columnNumber); //Make sure removal column has cards
-        Card c1 = getTopCard(columnNumber);           //Then get the card to be removed from that column
-        error = "cant remove the column";
-        int value1 = c1.getValue();                   //get the value of that card to compare later
-        if (check){
-            for (int i = 0; i < 4; i++){              //if the column has cards loop to a different column to compare cards
-                if(columnNumber != i){
-
-                    while(columnHasCards(i) == false) {     //if the next column doesn't have cards move one to the next one
-                        i++;
-                    }
-                }
-
-                Card c2 = getTopCard(i);                //get the card we are comparing the removal card to and its value
-                int value2 = c2.getValue();
-
-                if(c1.getSuit().toString() == c2.getSuit().toString() && value1 < value2){
-                    removeCardFromCol(columnNumber);//if the card matches suit and is larger then the removal card remove it and exit the loop
-                    score++;
-                    error = " ";
-                    break;
-                }
-            }
-        }
-
-
-    }
-
-    private boolean columnHasCards(int columnNumber) {
+    public boolean columnHasCards(int columnNumber) {
         // check indicated column for number of cards; if no cards return false, otherwise return true
         if(cols.get(columnNumber).size() > 0){
             return true;
@@ -75,45 +39,15 @@ public class Game {
 
     }
 
-    private Card getTopCard(int columnNumber) {
+    public Card getTopCard(int columnNumber) {
         return this.cols.get(columnNumber).get(this.cols.get(columnNumber).size()-1);
     }
 
-
-
-    public void move(int columnNumber) {
-        // remove the top card from the columnFrom column, add it to an empty column
-        error = "You cannot move this column";
-        int emptyColumn = 5;
-        int i = 0;
-        while ((emptyColumn == 5) || (i < 4)) {
-            if ((columnHasCards(i) == false)  && (i != columnNumber)) {
-                emptyColumn = i;
-            }
-                i++;
-        }
-            if ((emptyColumn != 5)) {
-                Card cardToMove = this.cols.get(columnNumber).get(cols.get(columnNumber).size() - 1);
-                if (cardToMove.getValue() == 14) {
-                    removeCardFromCol(columnNumber);
-                    addCardToCol(emptyColumn, cardToMove);
-                    error = " ";
-                }
-
-                else
-                    error = "Card is not an Ace";
-            }
-
-            else {
-                error = "No empty column";
-            }
-    }
-
-    private void addCardToCol(int columnTo, Card cardToMove) {
+    public void addCardToCol(int columnTo, Card cardToMove) {
         cols.get(columnTo).add(cardToMove);
     }
 
-    private void removeCardFromCol(int colFrom) {
+    public void removeCardFromCol(int colFrom) {
         this.cols.get(colFrom).remove(this.cols.get(colFrom).size()-1);
     }
 }
