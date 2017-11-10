@@ -6,7 +6,7 @@ public class User {
         // remove the top card from the indicated column
         boolean check = g.columnHasCards(columnNumber); //Make sure removal column has cards
         Card c1 = g.getTopCard(columnNumber);           //Then get the card to be removed from that column
-        g.error = "cant remove the column";
+        g.error = "Can't remove the column!";
         int value1 = c1.getValue();                   //get the value of that card to compare later
         if (check){
             for (int i = 0; i < 4; i++){              //if the column has cards loop to a different column to compare cards
@@ -33,13 +33,15 @@ public class User {
         g.error = "You cannot move this column";
         int emptyColumn = 5;
         int i = 0;
-        while ((emptyColumn == 5) || (i < 4)) {
-            if ((g.columnHasCards(i) == false)  && (i != columnNumber)) {
+        while ((emptyColumn == 5) && (i < 4)) {
+            if (g.columnHasCards(i) == false) {
                 emptyColumn = i;
-            }
+            }/*End if loop*/
             i++;
-        }
-        if ((emptyColumn != 5)) {
+        }/*End while loop*/
+        if(emptyColumn == 5)
+            g.error = "No empty column";
+        else{
             Card cardToMove = g.cols.get(columnNumber).get(g.cols.get(columnNumber).size() - 1);
             if (cardToMove.getValue() == 14) {
                 g.removeCardFromCol(columnNumber);
@@ -47,13 +49,11 @@ public class User {
                 g.error = " ";
             }
 
-            else
+            else {
                 g.error = "Card is not an Ace";
+            }
         }
 
-        else {
-            g.error = "No empty column";
-        }
     }
 
     public void dealfour(Game g) {
