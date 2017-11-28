@@ -155,7 +155,6 @@ margin-left: 20px;
 }
 
 #dealButton{
-    display: flex;
     justify-content: right;
     background-color: #9c00ff;
     border: none;
@@ -167,6 +166,35 @@ margin-left: 20px;
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
+    display: none;
+}
+
+#Mode1{
+  justify-content: right;
+  background-color: #9c00ff;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+#Mode2{
+  justify-content: right;
+  background-color: #9c00ff;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
 }
 
 #c0{
