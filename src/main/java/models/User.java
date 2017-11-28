@@ -2,6 +2,7 @@ package models;
 
 public class User {
     public int score = 0;
+    public int times_dealt = 0;
     public void remove(int columnNumber, Game g) {
         // remove the top card from the indicated column
         boolean check = g.columnHasCards(columnNumber); //Make sure removal column has cards
@@ -57,10 +58,20 @@ public class User {
     }
 
     public void dealfour(Game g) {
-        for(int i = 0; i < 4;i++){
-            g.addCardToCol(i,g.deck1.deck.get(g.deck1.deck.size() - 1));
-            g.deck1.deck.remove(g.deck1.deck.size() - 1);
+        if (times_dealt < 13) {
+            for (int i = 0; i < 4; i++) {
+                g.addCardToCol(i, g.deck1.deck.get(g.deck1.deck.size() - 1));
+                g.deck1.deck.remove(g.deck1.deck.size() - 1);
+            }
+            times_dealt++;
+        }else if (times_dealt = 13) {
+            for (int i = 0; i < 2; i++) {
+                g.addCardToCol(i, g.deck1.deck.get(g.deck1.deck.size() - 1));
+                g.deck1.deck.remove(g.deck1.deck.size() - 1);
+            }
         }
         g.error = " ";
+
+        if
     }
 }
