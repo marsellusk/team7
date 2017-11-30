@@ -9,6 +9,7 @@ import java.util.Random;
  */
 public class Game {
 
+    int Mode;
 
     public java.util.List<java.util.List<Card>> cols = new ArrayList<>(4);
 
@@ -28,6 +29,10 @@ public class Game {
         score = 0;
     }
 
+    public void set_mode(int mode) {
+      Mode = mode;
+    }
+    
     public boolean columnHasCards(int columnNumber) {
         // check indicated column for number of cards; if no cards return false, otherwise return true
         if(cols.get(columnNumber).size() > 0){

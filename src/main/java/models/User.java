@@ -65,13 +65,13 @@ public class User {
             }
             times_dealt++;
         }else if (times_dealt = 13) {
-            for (int i = 0; i < 2; i++) {
-                g.addCardToCol(i, g.deck1.deck.get(g.deck1.deck.size() - 1));
-                g.deck1.deck.remove(g.deck1.deck.size() - 1);
-            }
+        for (int i = 0; i < 2; i++) {
+            g.addCardToCol(i, g.deck1.deck.get(g.deck1.deck.size() - 1));
+            g.deck1.deck.remove(g.deck1.deck.size() - 1);
         }
-        g.error = " ";
+    }
+    g.error = " ";
 
         if
-    }
+}
 }
