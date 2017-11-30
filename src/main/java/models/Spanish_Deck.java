@@ -12,12 +12,14 @@ public class Deck1{
     public Deck1() {
         value = 50;
         for(int i = 2; i < 14; i++){
-            deck1.add(new Card(i,Suit1.Bastos));
-            deck1.add(new Card(i,Suit1.Copas));
-            deck1.add(new Card(i,Suit1.Oros));
-            deck1.add(new Card(i,Suit1.Espadas));
+            deck1.add(new Card(i,Suit_Spanish.Bastos));
+            deck1.add(new Card(i,Suit_Spanish.Copas));
+            deck1.add(new Card(i,Suit_Spanish.Oros));
+            deck1.add(new Card(i,Suit_Spanish.Espadas));
         }
         //ADD JOKER HERE
+        deck1.add(new Card(49, Suit_Spanish.Joker1));
+        deck1.add(new Card(50, Suit_Spanish.Joker2));
     }
 
     public void shuffle(){

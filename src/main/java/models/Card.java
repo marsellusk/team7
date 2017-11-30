@@ -12,7 +12,7 @@ import java.io.Serializable;
 public class Card implements Serializable {
     public final int value;
     public final Suit suit;
-    public final Suit1 suit1;
+    public final Suit_Spanish suit_spanish;
 
     @JsonCreator
     public Card(@JsonProperty("value") int value, @JsonProperty("suit") Suit suit) {
