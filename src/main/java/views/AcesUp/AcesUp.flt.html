@@ -165,9 +165,21 @@ display(data);
 game = data;
 });
 
-
+function modeSelect(mode) {
+  $.ajax({
+  type: "POST",
+  url: "/modeSelect/"+mode,
+  data: JSON.stringify(game),
+  success: function(data, status){console.log("Data: " + data + "\nStatus: " + status);
+  game = data;
+  display(data);},
+  contentType:"application/json; charset=utf-8",
+  dataType:"json",
+  });
+}
 
 $("#Mode1").click(function(){
+  modeSelect(1);
   $("#dealButton").css("display","block");
   $("#Mode1").css("display","none");
    $("#Mode2").css("display","none");
@@ -187,6 +199,7 @@ $.ajax({
 });
 
 $("#Mode2").click(function(){
+    modeSelect(2);
    $("#dealButton").css("display","block");
    $("#Mode1").css("display","none");
     $("#Mode2").css("display","none");

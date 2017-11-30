@@ -84,6 +84,18 @@ public class User {
                 g.deck1.deck.remove(g.deck1.deck.size() - 1);
             }
             times_dealt++;
+
+        }else if (times_dealt = 13) {
+        for (int i = 0; i < 2; i++) {
+            g.addCardToCol(i, g.deck1.deck.get(g.deck1.deck.size() - 1));
+            g.deck1.deck.remove(g.deck1.deck.size() - 1);
+        }
+    }
+    g.error = " ";
+
+        if
+}
+
         } else if (times_dealt = 13) {
             for (int i = 0; i < 2; i++) {
                 g.addCardToCol(i, g.deck1.deck.get(g.deck1.deck.size() - 1));
@@ -93,4 +105,5 @@ public class User {
         g.error = " ";
     }/*End else statement*/
     }
+
 }
