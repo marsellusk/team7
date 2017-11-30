@@ -9,6 +9,7 @@ import java.util.Random;
  */
 public class Game {
 
+    int Mode;
 
     public java.util.List<java.util.List<Card>> cols = new ArrayList<>(4);
 
@@ -30,7 +31,9 @@ public class Game {
 
 
 
-
+    public void set_mode(int mode) {
+        Mode = mode;
+    }
 
 
     public boolean columnHasCards(int columnNumber) {

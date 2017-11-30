@@ -30,11 +30,15 @@ public class ApplicationController {
     public Result index() {
         return Results.html().template("views/AcesUp/AcesUp.flt.html");
     }
-    
+
     public Result gameGet(){
         Game g = new Game();
         g.deck1.shuffle();
 
+        return Results.json().render(g);
+    }
+    public Result modeSelect(Context context, @PathParam("mode") int mode, Game g) {
+        g.set_mode(mode);
         return Results.json().render(g);
     }
 
