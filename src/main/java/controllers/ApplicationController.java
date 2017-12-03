@@ -31,32 +31,37 @@ public class ApplicationController {
         return Results.html().template("views/AcesUp/AcesUp.flt.html");
     }
 
+
     public Result gameGet(){
         Game g = new Game();
+
         g.deck1.shuffle();
+        g.deck2.shuffle();
 
         return Results.json().render(g);
     }
 
     public Result modeSelect(Context context, @PathParam("mode") int mode, Game g) {
-      g.set_mode(mode);
+
+      g.Mode = mode;
+
       return Results.json().render(g);
     }
 
     public Result dealPost(Context context, Game g) {
         if(context.getRequestPath().contains("deal")){
-            g.user1.dealfour(g);
+            g.user1.dealfour(g, g.Mode);
         }
         return Results.json().render(g);
     }
 
     public Result removeCard(Context context, @PathParam("column") int colNumber, Game g){
-        g.user1.remove(colNumber, g);
+        g.user1.remove(colNumber, g, g.Mode);
         return Results.json().render(g);
     }
 
     public Result moveCard(Context context, @PathParam("column") int colNumber, Game g){
-        g.user1.move(colNumber, g);
+        g.user1.move(colNumber, g, g.Mode);
         return Results.json().render(g);
     }
 
