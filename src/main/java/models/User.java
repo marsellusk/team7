@@ -23,16 +23,22 @@ public class User {
                     if (c1.getSuit().toString() == c2.getSuit().toString() && value1 < value2) {
                         g.removeCardFromCol(columnNumber);//if the card matches suit and is larger then the removal card remove it and exit the loop
                         g.score++;
-                        g.error = " ";
+                        g.error = "Remove successfully!";
                         break;
                     }/*End if statement*/
                 }/*End if statement*/
                 else{                                           //For Spanish deck game mode
-                    if(c2.getSuit().toString() == "Joker1" || c2.getSuit().toString() == "Joker2"){
+                    if (c1.getSuit().toString() == c2.getSuit().toString() && value1 < value2) {
+                        g.removeCardFromCol(columnNumber);//if the card matches suit and is larger then the removal card remove it and exit the loop
+                        g.score++;
+                        g.error = "Remove successfully!";
+                        break;
+                    }/*End if statement*/
+                    if(c2.getSuit().toString() == "Joker"){
                         g.removeCardFromCol(columnNumber);
                         g.removeCardFromCol(i);
                         g.score += 2;
-                        g.error = " ";
+                        g.error = "You remove the Joker!";
                         break;
                     }/*End if statement*/
 
@@ -55,12 +61,16 @@ public class User {
             g.error = "No empty column";
         else{
             Card cardToMove = g.cols.get(columnNumber).get(g.cols.get(columnNumber).size() - 1);
-            if (cardToMove.getValue() == 14) {
+            if (mode == 1 && cardToMove.getValue() == 14) {
                 g.removeCardFromCol(columnNumber);
                 g.addCardToCol(emptyColumn, cardToMove);
-                g.error = " ";
+                g.error = "Move successfully";
             }
-
+            else if(mode == 2 && cardToMove.getValue() == 13){
+                g.removeCardFromCol(columnNumber);
+                g.addCardToCol(emptyColumn, cardToMove);
+                g.error = "Move successfully";
+            }
             else {
                 g.error = "Card is not an Ace";
             }
