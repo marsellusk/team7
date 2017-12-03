@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
+
 public class testSpanish_Deck{
 
   @Test
@@ -13,4 +14,6 @@ public class testSpanish_Deck{
     deck2.shuffle();
     assertEquals(deck2.size(),50);
   }
+  
 }
+

@@ -28,16 +28,7 @@ public class testCard {
         assertEquals("Clubs", c2, toString(2));
         assertEquals("5Clubs", c.toStirng(2));
     }
-   /* @Test
-    public void testMoveCard(){
-        Game g = new Game();
-        g.customDeal(0,3,6,9);
-        g.remove(2);
-        assertEquals(0,g.columns.get(2).cards.size());
-        g.move(0,2);
-        assertEquals(1,g.columns.get(2).cards.size());
-        assertEquals(0,g.columns.get(0).cards.size());
-    }*/
+ 
 
 
 }
