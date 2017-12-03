@@ -19,16 +19,19 @@ public class testCard {
         assertEquals("5Clubs",c.toString(1));
     }
 
-   /* @Test
-    public void testMoveCard(){
-        Game g = new Game();
-        g.customDeal(0,3,6,9);
-        g.remove(2);
-        assertEquals(0,g.columns.get(2).cards.size());
-        g.move(0,2);
-        assertEquals(1,g.columns.get(2).cards.size());
-        assertEquals(0,g.columns.get(0).cards.size());
-    }*/
+    @Test
+    public void testCardMode(){
+        Card c = new Card(5,Suit.Clubs);
+        Card c2 = new Card(14,Suit.Clubs);
+
+        //cardsuit
+        assertEquals(5,c.getValue());
+        assertEquals("Clubs",c2.toString(2));
+        assertEquals("5Clubs",c.toString(2));
+
+    }
+
+
 
 
 }
