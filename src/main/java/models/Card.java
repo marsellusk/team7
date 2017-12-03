@@ -33,6 +33,9 @@ public class Card implements Serializable {
         if(mode == 1)
             return this.value + this.suit.toString();
         else
-            return this.suit.toString();
+            if(this.value == 14)
+                return this.suit.toString();
+            else
+                return this.value + this.suit.toString();
     }
 }
