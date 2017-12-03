@@ -31,7 +31,8 @@ public class ApplicationController {
         return Results.html().template("views/AcesUp/AcesUp.flt.html");
     }
 
-    public Result gameGet() {
+
+    public Result gameGet(){
         Game g = new Game();
 
         g.deck1.shuffle();
@@ -41,7 +42,9 @@ public class ApplicationController {
     }
 
     public Result modeSelect(Context context, @PathParam("mode") int mode, Game g) {
+
       g.Mode = mode;
+
       return Results.json().render(g);
     }
 
