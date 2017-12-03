@@ -60,5 +60,15 @@ public class testGame {
     }
 
 */
+    @Test
+    public void testGameColumn() {
+        Game g = new Game();
+        g.set_mode(1);
+        assertEquals(1, g.Mode);
+        assertEquals(0, g.score);
 
+        assertFalse(g.columnHasCards(0));
+        g.user1.dealfour(g, g.Mode);
+        assertTrue(g.columnHasCards(0));
+    }
 }
