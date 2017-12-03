@@ -77,20 +77,21 @@ public class User {
         times_dealt++;
         g.error = " ";
     }/*End if statement*/
-        else{
-        if (times_dealt < 13) {
+    else if (mode == 2){
+        if (times_dealt < 12) {
             for (int i = 0; i < 4; i++) {
-                g.addCardToCol(i, g.deck1.deck.get(g.deck1.deck.size() - 1));
-                g.deck1.deck.remove(g.deck1.deck.size() - 1);
+                g.addCardToCol(i, g.deck2.deck2.get(g.deck2.deck2.size() - 1));
+                g.deck2.deck2.remove(g.deck2.deck2.size() - 1);
             }
-            times_dealt++;
-        } else if (times_dealt = 13) {
-            for (int i = 0; i < 2; i++) {
-                g.addCardToCol(i, g.deck1.deck.get(g.deck1.deck.size() - 1));
-                g.deck1.deck.remove(g.deck1.deck.size() - 1);
-            }
+            times_dealt += 1;
+        }else if (times_dealt == 12) {
+        for (int i = 0; i < 2; i++) {
+            g.addCardToCol(i, g.deck2.deck2.get(g.deck2.deck2.size() - 1));
+            g.deck2.deck2.remove(g.deck2.deck2.size() - 1);
         }
-        g.error = " ";
+    }
+    g.error = " ";
+}
+
     }/*End else statement*/
     }
-}

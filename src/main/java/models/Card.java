@@ -12,7 +12,7 @@ import java.io.Serializable;
 public class Card implements Serializable {
     public final int value;
     public final Suit suit;
-    public final Suit_Spanish suit_spanish;
+
 
     @JsonCreator
     public Card(@JsonProperty("value") int value, @JsonProperty("suit") Suit suit) {
@@ -29,7 +29,10 @@ public class Card implements Serializable {
         return value;
     }
 
-    public String toString() {
-        return this.value + this.suit.toString();
+    public String toString(int mode) {
+        if(mode == 1)
+            return this.value + this.suit.toString();
+        else
+            return this.suit.toString();
     }
 }

@@ -9,7 +9,7 @@ import java.util.Random;
  */
 public class Game {
 
-    int Mode;
+    public int Mode;
 
     public java.util.List<java.util.List<Card>> cols = new ArrayList<>(4);
 
@@ -18,6 +18,8 @@ public class Game {
     public int score;
 
     public Deck deck1 = new Deck();
+
+    public Spanish_Deck deck2 = new Spanish_Deck();
 
     public User user1 = new User();
 
@@ -28,8 +30,6 @@ public class Game {
         }
         score = 0;
     }
-
-
 
     public void set_mode(int mode) {
         Mode = mode;

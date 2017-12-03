@@ -5,21 +5,21 @@ import java.util.ArrayList;
 import java.util.Random;
 //public java.util.List<Card> deck = new ArrayList<>();
 
-public class Deck1{
-    public java.util.List<Card> deck1 = new ArrayList<>();
+public class Spanish_Deck {
+    public java.util.List<Card> deck2 = new ArrayList<>();
     public final int value;
 
-    public Deck1() {
+    public Spanish_Deck() {
         value = 50;
         for(int i = 2; i < 14; i++){
-            deck1.add(new Card(i,Suit_Spanish.Bastos));
-            deck1.add(new Card(i,Suit_Spanish.Copas));
-            deck1.add(new Card(i,Suit_Spanish.Oros));
-            deck1.add(new Card(i,Suit_Spanish.Espadas));
+            deck2.add(new Card(i,Suit.Bastos));
+            deck2.add(new Card(i,Suit.Copas));
+            deck2.add(new Card(i,Suit.Oros));
+            deck2.add(new Card(i,Suit.Espadas));
         }
         //ADD JOKER HERE
-        deck1.add(new Card(49, Suit_Spanish.Joker1));
-        deck1.add(new Card(50, Suit_Spanish.Joker2));
+        deck2.add(new Card(14, Suit.Joker));
+        deck2.add(new Card(14, Suit.Joker));
     }
 
     public void shuffle(){
@@ -29,15 +29,15 @@ public class Deck1{
             Card temp;
             Random rand = new Random();
             n = rand.nextInt(50);
-            temp = deck1.get(n);
-            deck1.set(n,deck1.get(deck1.size() - 1));
-            deck1.set(deck1.size() - 1,temp);
+            temp = deck2.get(n);
+            deck2.set(n,deck2.get(deck2.size() - 1));
+            deck2.set(deck2.size() - 1,temp);
         }/*End for loop*/
     }
 
 
     public int size(){
-        return deck1.size();
+        return deck2.size();
     }
 
 }
