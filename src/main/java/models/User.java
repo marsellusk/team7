@@ -16,7 +16,6 @@ public class User {
                         i++;
                     }/*End while loop*/
                 }/*End if statement*/
-
                     Card c2 = g.getTopCard(i);                //get the card we are comparing the removal card to and its value
                     int value2 = c2.getValue();
                 if(mode == 1) {                                 //For normal card game mode
@@ -28,13 +27,15 @@ public class User {
                     }/*End if statement*/
                 }/*End if statement*/
                 else{                                           //For Spanish deck game mode
+
                     if (c1.getSuit().toString() == c2.getSuit().toString() && value1 < value2) {
                         g.removeCardFromCol(columnNumber);//if the card matches suit and is larger then the removal card remove it and exit the loop
                         g.score++;
                         g.error = "Remove successfully!";
                         break;
                     }/*End if statement*/
-                    if(c2.getSuit().toString() == "Joker"){
+                    if(c1.getSuit().toString() != "Joker" && c2.getSuit().toString() == "Joker"){
+
                         g.removeCardFromCol(columnNumber);
                         g.removeCardFromCol(i);
                         g.score += 2;
